@@ -74,8 +74,7 @@ class VideoReportGenerate:
                     "default": "What is Art?"
                 }), 
                 "prompt_num_threads": ("INT", {"default": 1, "min": 1, "max": 10, "step": 1}),
-                "video_num_threads": ("INT", {"default": 1, "min": 1, "max": 10, "step": 1}),
-                "model": ((), {}), 
+                "video_num_threads": ("INT", {"default": 1, "min": 1, "max": 10, "step": 1}), 
                 
             }, 
             "optional": {
@@ -84,12 +83,16 @@ class VideoReportGenerate:
             }
         }
 
+    @classmethod
+    def IS_CHANGED(s, prompt, prompt_num_threads, video_num_threads, images=None,):
+        return float("NaN") 
+    
     RETURN_TYPES = ("STRING", "STRING",)
     RETURN_NAMES = ("prompt_report_path", "video_report_path",)
     FUNCTION = "video_report_generate"
     CATEGORY = "zhipuai/video"
 
-    def video_report_generate(self, prompt, prompt_num_threads, video_num_threads, model, images=None,):
+    def video_report_generate(self, prompt, prompt_num_threads, video_num_threads, images=None,):
         input_excel = init_dataset_return_datapath(prompt, images)
         
         output_data_dir = os.path.join(
@@ -151,6 +154,9 @@ class VideoReportPull:
                 "num_threads": ("INT", {"default": 1, "min": 1, "max": 10, "step": 1}),
             }
         }
+    @classmethod
+    def IS_CHANGED(s, video_report_path, num_threads):
+        return float("NaN") 
 
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("video_pull_report_path",)
@@ -194,6 +200,10 @@ class VideoReportData:
             }
         }
 
+    @classmethod
+    def IS_CHANGED(s, file_path):
+        return float("NaN") 
+    
     RETURN_TYPES = ("DICT", "STRING", )
     RETURN_NAMES = ("data", "show_text", )
 
