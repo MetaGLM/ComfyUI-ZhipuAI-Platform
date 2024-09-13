@@ -1,0 +1,511 @@
+{
+  "last_node_id": 34,
+  "last_link_id": 31,
+  "nodes": [
+    {
+      "id": 31,
+      "type": "VideoReportData",
+      "pos": [
+        3298,
+        2504
+      ],
+      "size": [
+        315,
+        102
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "file_path",
+          "type": "STRING",
+          "link": 27,
+          "widget": {
+            "name": "file_path"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "DICT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "show_text",
+          "type": "STRING",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoReportData"
+      },
+      "widgets_values": [
+        "",
+        "gen"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "VideoReportGenerate",
+      "pos": [
+        3282,
+        2259
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt_report_path",
+          "type": "STRING",
+          "links": null,
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "video_report_path",
+          "type": "STRING",
+          "links": [
+            27,
+            29
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoReportGenerate"
+      },
+      "widgets_values": [
+        "举起牌子",
+        2,
+        1,
+        null
+      ]
+    },
+    {
+      "id": 24,
+      "type": "LoadImage",
+      "pos": [
+        2782,
+        2170
+      ],
+      "size": {
+        "0": 315,
+        "1": 314.00006103515625
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "357287916-6c326972-fc2c-43bf-a7aa-01fcbc393552.png",
+        "image"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "ImageResizeKJ",
+      "pos": [
+        2803,
+        2520
+      ],
+      "size": {
+        "0": 315,
+        "1": 242
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 21
+        },
+        {
+          "name": "get_image_size",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width_input",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width_input"
+          }
+        },
+        {
+          "name": "height_input",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height_input"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "widgets_values": [
+        720,
+        480,
+        "lanczos",
+        false,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 26,
+      "type": "RepeatImageBatch",
+      "pos": [
+        2798,
+        2827
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            23
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RepeatImageBatch"
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 34,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3828,
+        2765
+      ],
+      "size": [
+        428.66836612200495,
+        228.7461814003409
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 31,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "[['video_task_id', 'result', 'task_status'], ['1000089017969658594632391', \"[{'url': 'https://sfile.chatglm.cn/testpath/video/7aee2d7b-1bad-5748-b442-da2164151ea6_0.mp4', 'cover_image_url': 'https://sfile.chatglm.cn/testpath/video_cover/7aee2d7b-1bad-5748-b442-da2164151ea6_cover_0.png'}]\", 'SUCCESS']]"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "VideoReportData",
+      "pos": [
+        3824,
+        2538
+      ],
+      "size": {
+        "0": 315,
+        "1": 102
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "file_path",
+          "type": "STRING",
+          "link": 30,
+          "widget": {
+            "name": "file_path"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "DICT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "show_text",
+          "type": "STRING",
+          "links": [
+            31
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoReportData"
+      },
+      "widgets_values": [
+        "",
+        "pull"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "VideoReportPull",
+      "pos": [
+        3831,
+        2297
+      ],
+      "size": [
+        337.6000061035156,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_report_path",
+          "type": "STRING",
+          "link": 29,
+          "widget": {
+            "name": "video_report_path"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_pull_report_path",
+          "type": "STRING",
+          "links": [
+            30
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VideoReportPull"
+      },
+      "widgets_values": [
+        "",
+        1
+      ]
+    },
+    {
+      "id": 30,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3291,
+        2713
+      ],
+      "size": [
+        456.66836612200495,
+        326.2461814003409
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 28,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "[['video_prompt', 'image_path', 'video_task_id'], ['场景描述：\\n\\n在一宽敞明亮的室内或户外场地上，一位参与者站立在众人的视线之中。他（她）的手中握着一块制作好的牌子。牌子的大小适中，足以引起人们的注意，表面光滑平整，上面印有或手写有特定的文字、图案或符号。\\n\\n动作分解：\\n\\n1. 准备动作：参与者首先自然站立，双腿微分，保持身体平衡。牌子平放在身体的一侧，通常是靠近手臂的一侧，用一只手（多数情况下是右手）握住牌子的边缘或提手。\\n\\n2. 抬起动作：参与者开始缓慢地将牌子抬起，手臂逐渐伸直，带动牌子从身体侧面向前上方移动。此时，握牌的手紧紧固定牌子，确保在抬起的过程中牌子不会晃动或脱落。\\n\\n3. 举牌动作：当牌子移动至与地面平行时，参与者继续用力，将牌子举至头顶正上方。手臂完全伸直，牌子面朝前方，确保上面的内容可以被正面朝向的观众清晰看到。\\n\\n4. 稳定姿态：牌子举至头顶后，参与者暂停动作，保持几秒钟的静止状态。此时，全身肌肉紧绷，特别是手臂和肩膀，以保持牌子的稳定。\\n\\n5. 结束动作：随后，参与者缓缓将牌子放回原位，恢复到初始的自然站立姿势。整个举牌动作过程中，参与者的面部表情和身体语言根据场合和目的而有所不同，可能是严肃、兴奋或期待等。\\n\\n这个动作可能是为了引起关注、表达意见、宣传某种信息或作为某个活动的一部分。', '/mnt/ceph/develop/jiawei/ComfyUI/output/zhipu/input/image_0.png', '1000089017969658594632391']]"
+      ]
+    }
+  ],
+  "links": [
+    [
+      21,
+      24,
+      0,
+      25,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      25,
+      0,
+      26,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      26,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      27,
+      1,
+      31,
+      0,
+      "STRING"
+    ],
+    [
+      28,
+      31,
+      1,
+      30,
+      0,
+      "STRING"
+    ],
+    [
+      29,
+      27,
+      1,
+      32,
+      0,
+      "STRING"
+    ],
+    [
+      30,
+      32,
+      0,
+      33,
+      0,
+      "STRING"
+    ],
+    [
+      31,
+      33,
+      1,
+      34,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6830134553650705,
+      "offset": [
+        -2202.8464161220054,
+        -1965.3600814003414
+      ]
+    }
+  },
+  "version": 0.4
+}
