@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-zhipuai-platform"
+description = "This platform extension provides ZhipuAI nodes, enabling you to configure a workflow for online video generation."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["zhipuai-platform-video"]
+
+[project.urls]
+Repository = "https://github.com/MetaGLM/ComfyUI-ZhipuAI-Platform"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-ZhipuAI-Platform"
+Icon = ""
